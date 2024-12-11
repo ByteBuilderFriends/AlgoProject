@@ -7,10 +7,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  build-linux:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: configure
@@ -21,3 +19,24 @@ jobs:
       run: make check
     - name: make distcheck
       run: make distcheck
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: |
+        choco install make
+        choco install mingw
+    - name: Configure
+      run: ./configure
+      shell: bash
+    - name: Make
+      run: make
+      shell: bash
+    - name: Make check
+      run: make check
+      shell: bash
+    - name: Make distcheck
+      run: make distcheck
+      shell: bash
