@@ -8,6 +8,7 @@ using namespace std;
 void merge(vector<Product>& arr, int left, int right) {
     if (left >= right) return;
 
+    // int mid = (left + right) / 2
     int mid = left + (right - left) / 2;
 
     merge(arr, left, mid);      // Sort the left half
