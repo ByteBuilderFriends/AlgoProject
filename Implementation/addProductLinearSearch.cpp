@@ -22,7 +22,6 @@ void Inventory::addProductLinearSearch(const Product& newProduct) {
 
     // If the Product_ID is unique, add the new product to the inventory
     inventory.push_back(newProduct);
-    productTable[newProduct.Product_ID] = newProduct;
     sortedProductIDs.push_back(newProduct.Product_ID);
 
     cout << "Product with ID " << newProduct.Product_ID << " added successfully!" << endl;
